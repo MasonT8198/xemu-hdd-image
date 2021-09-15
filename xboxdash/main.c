@@ -20,6 +20,7 @@ int main(void)
     debugPrint("Please insert a disc...\n");
 
     ULONG state;
+    ULONG oldstate;
 
     while (1) {
         XVideoWaitForVBlank();
