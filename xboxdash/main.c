@@ -20,6 +20,7 @@ int main(void)
     debugPrint("Please insert a disc...\n");
 
     ULONG state;
+    ULONG oldstate;
 
     while (1) {
         XVideoWaitForVBlank();
@@ -30,6 +31,15 @@ int main(void)
             if ((GetFileAttributesA("A:\\default.xbe")) != INVALID_FILE_ATTRIBUTES) {
                 debugPrint("Launching...\n");
                 XLaunchXBE("\\Device\\CdRom0\\default.xbe");
+            }
+            else
+            {
+                while (oldstate != state)
+                {
+                    debugPrint("Please double check if you've packed your ISO correctly.\n");
+                    debugPrint("REDUMP isos do not work in Xemu at the moment.\nPlease avoid using them.\n");
+                    oldstate = state;
+                }
             }
         }
 
