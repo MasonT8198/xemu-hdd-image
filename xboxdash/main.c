@@ -31,6 +31,15 @@ int main(void)
                 debugPrint("Launching...\n");
                 XLaunchXBE("\\Device\\CdRom0\\default.xbe");
             }
+            else
+            {
+                while (oldstate != state)
+                {
+                    debugPrint("Please double check if you've packed your ISO correctly.\n");
+                    debugPrint("REDUMP isos do not work in Xemu at the moment.\nPlease avoid using them.\n");
+                    oldstate = state;
+                }
+            }
         }
 
 
